@@ -3,23 +3,27 @@
   --table-bg-color: #EEE8AA;
 }
 
-table,
-th,
-td {
-  border: 2px solid var(--table-border-color);
-  border-collapse: collapse;
-  font-family: Arial;
-}
-
-th,
-td {
-  background-color: var(--table-bg-color);
-  padding: 15px;
-}
-
-caption {
+h1 {
   font-family: 'Kaushan Script', cursive;
   font-size: 70px;
   color: var(--table-border-color);
   padding: 20px;
+  text-align: center;
+}
+
+#wrapper {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cell {
+  background-color: var(--table-bg-color);
+  border: 2px solid var(--table-border-color);
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  padding: 20px;
+  margin: 1px;
 }
