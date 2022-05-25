@@ -1,13 +1,25 @@
+:root {
+  --table-border-color: #800080;
+  --table-bg-color: #EEE8AA;
+}
+
 table,
 th,
 td {
-  border: 2px solid #800080;
+  border: 2px solid var(--table-border-color);
   border-collapse: collapse;
   font-family: Arial;
 }
 
 th,
 td {
-  background-color: #EEE8AA;
+  background-color: var(--table-bg-color);
   padding: 15px;
+}
+
+caption {
+  font-family: 'Kaushan Script', cursive;
+  font-size: 70px;
+  color: var(--table-border-color);
+  padding: 20px;
 }
