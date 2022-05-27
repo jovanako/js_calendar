@@ -16,6 +16,7 @@ h1 {
   grid-template-columns: repeat(7, 1fr);
   width: 80%;
   min-height: 500px;
+  margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -29,16 +30,24 @@ h1 {
   font-size: 20px;
   padding: 20px;
   margin: 1px;
+  transition-duration: 0.4s;
 }
 
 .cell:hover {
   background-color: var(--cell-border-color);
   color: var(--cell-bg-color);
-  border: 2px solid var(--cell-bg-color);
+  font-size: 40px;
+  text-align: center;
+  padding: 5px;
+}
 
+#current-day {
+  background-color: var(--cell-border-color);
+  color: var(--cell-bg-color);
 }
 
 .button {
+  width: 100px;
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   text-align: center;
@@ -47,10 +56,10 @@ h1 {
   border-radius: 5px;
   background-color: var(--cell-border-color);
   color: var(--cell-bg-color);
+  transition-duration: 0.4s;
 }
 
 .button:hover {
   background-color: var(--cell-bg-color);
   color: var(--cell-border-color);
-
 }

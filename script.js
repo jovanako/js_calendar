@@ -31,16 +31,22 @@ next.className = "button"
 next.id = "next-button"
 body.append(next)
 
-
 const calendarWrapper = document.createElement('div')
 calendarWrapper.id = "wrapper"
 body.append(calendarWrapper)
+
+const currentDay = new Date();
+const dayOfMonth = currentDay.getUTCDate();
 
 let counter = 1
 
 for (let i = 0; i < daysInCurrentMonth; i++) {
   let cell = document.createElement('div')
   cell.className = "cell"
-  cell.innerText = counter++
+  cell.innerText = counter
+  if (counter === dayOfMonth) {
+    cell.id = "current-day"
+  }
+  counter++
   wrapper.append(cell)
 }
