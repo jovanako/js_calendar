@@ -32,7 +32,6 @@ function appendTitleWrapperButton(innerText) {
 
 const date = new Date()
 const currentMonth = date.getMonth()
-const daysInCurrentMonth = getDaysInMonth(date.getFullYear(), currentMonth)
 const dayOfMonth = date.getDate()
 
 // Div containing
@@ -62,20 +61,30 @@ body.append(calendarWrapper)
 
 // creates table cells and populates them with numbers representing each day in the month
 
-let counter = 1
+function renderMonth(month, year) {
+  let counter = 1
+  const daysInMonth = getDaysInMonth(year, month)
 
-for (let i = 0; i < daysInCurrentMonth; i++) {
-  let cell = document.createElement('div')
-  cell.className = "cell"
-  cell.innerText = counter
-  if (counter === dayOfMonth) {
-    cell.id = "current-day"
+  for (let i = 0; i < daysInMonth; i++) {
+    let cell = document.createElement('div')
+    cell.className = "cell"
+    cell.id = `date${counter}`
+    cell.innerText = counter++
+    wrapper.append(cell)
   }
-  counter++
-  wrapper.append(cell)
 }
 
+
+// if (counter === dayOfMonth) {
+//   cell.id = "current-day"
+// }
+
+
 // creates click event for previous button
+
+let renderedMonth = currentMonth
+let renderedYear = date.getFullYear()
+renderMonth(renderedMonth, renderedYear)
 
 function getPreviousMonth() {
 
