@@ -15,9 +15,22 @@ const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'Jul
 
 let nameOfCurrentMonth = monthNames[currentMonth - 1]
 
+const previous = document.createElement("button")
+previous.innerText = "Previous"
+previous.className = "button"
+previous.id = "previous-button"
+body.append(previous)
+
 let monthTitle = document.createElement('h1')
 monthTitle.innerText = nameOfCurrentMonth
 body.append(monthTitle)
+
+const next = document.createElement("button")
+next.innerText = "Next"
+next.className = "button"
+next.id = "next-button"
+body.append(next)
+
 
 const calendarWrapper = document.createElement('div')
 calendarWrapper.id = "wrapper"
@@ -31,4 +44,3 @@ for (let i = 0; i < daysInCurrentMonth; i++) {
   cell.innerText = counter++
   wrapper.append(cell)
 }
-
