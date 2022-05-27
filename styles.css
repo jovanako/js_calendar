@@ -1,25 +1,75 @@
 :root {
-  --table-border-color: #800080;
-  --table-bg-color: #EEE8AA;
+  --cell-border-color: #800080;
+  --cell-bg-color: #EEE8AA;
 }
 
-table,
-th,
-td {
-  border: 2px solid var(--table-border-color);
-  border-collapse: collapse;
-  font-family: Arial;
+#title-wrapper {
+  display: flex;
+  width: 80%;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-th,
-td {
-  background-color: var(--table-bg-color);
-  padding: 15px;
-}
-
-caption {
+h1 {
+  flex: 1;
   font-family: 'Kaushan Script', cursive;
-  font-size: 70px;
-  color: var(--table-border-color);
+  font-size: 80px;
+  color: var(--cell-border-color);
   padding: 20px;
+  text-align: center;
+}
+
+.button {
+  width: 100px;
+  height: 50px;
+  margin-top: 10%;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  text-align: center;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--cell-border-color);
+  color: var(--cell-bg-color);
+  transition-duration: 0.4s;
+}
+
+.button:hover {
+  background-color: var(--cell-bg-color);
+  color: var(--cell-border-color);
+}
+
+#wrapper {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  width: 80%;
+  min-height: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cell {
+  background-color: var(--cell-bg-color);
+  color: var(--cell-border-color);
+  border: 2px solid var(--cell-border-color);
+  border-radius: 5px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  padding: 20px;
+  margin: 1px;
+  transition-duration: 0.4s;
+}
+
+.cell:hover {
+  background-color: var(--cell-border-color);
+  color: var(--cell-bg-color);
+  font-size: 40px;
+  text-align: center;
+  padding: 5px;
+}
+
+#current-day {
+  background-color: var(--cell-border-color);
+  color: var(--cell-bg-color);
 }
