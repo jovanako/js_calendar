@@ -1,12 +1,12 @@
 :root {
-  --table-border-color: #800080;
-  --table-bg-color: #EEE8AA;
+  --cell-border-color: #800080;
+  --cell-bg-color: #EEE8AA;
 }
 
 h1 {
   font-family: 'Kaushan Script', cursive;
   font-size: 70px;
-  color: var(--table-border-color);
+  color: var(--cell-border-color);
   padding: 20px;
   text-align: center;
 }
@@ -21,10 +21,36 @@ h1 {
 }
 
 .cell {
-  background-color: var(--table-bg-color);
-  border: 2px solid var(--table-border-color);
+  background-color: var(--cell-bg-color);
+  color: var(--cell-border-color);
+  border: 2px solid var(--cell-border-color);
+  border-radius: 5px;
   font-family: 'Open Sans', sans-serif;
   font-size: 20px;
   padding: 20px;
   margin: 1px;
+}
+
+.cell:hover {
+  background-color: var(--cell-border-color);
+  color: var(--cell-bg-color);
+  border: 2px solid var(--cell-bg-color);
+
+}
+
+.button {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  text-align: center;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--cell-border-color);
+  color: var(--cell-bg-color);
+}
+
+.button:hover {
+  background-color: var(--cell-bg-color);
+  color: var(--cell-border-color);
+
 }
