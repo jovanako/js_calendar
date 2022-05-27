@@ -1,59 +1,66 @@
-const body = document.body
+const MONTH_NAMES = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December'
+]
 
-// creates a function that calculates number of days in the current month
-
+/**
+ * @param {number} year 
+ * @param {number} month
+ * @returns number of days in the given month, for the given year
+ */
 function getDaysInMonth(year, month) {
-  return new Date(year, month, 0).getDate()
+  return new Date(year, month + 1, 0).getDate()
 }
 
-// creates variables holding the values of 
-// - current year
-// - current month
-// - number of days in current month
+function appendTitleWrapperButton(innerText) {
+  const button = document.createElement('button')
+  button.innerText = innerText
+  button.className = "button"
+  titleWrapper.append(button)
+  return button
+}
 
 const date = new Date()
-const currentYear = date.getFullYear()
-const currentMonth = date.getMonth() + 1
-const daysInCurrentMonth = getDaysInMonth(currentYear, currentMonth)
+const currentMonth = date.getMonth()
+const daysInCurrentMonth = getDaysInMonth(date.getFullYear(), currentMonth)
+const dayOfMonth = date.getDate()
 
-// creates a div containing the title (name of current month), and the buttons for the previous and next month
+// Div containing
+// - title (name of current month)
+// - buttons for the previous and next month
+const body = document.body
 
 const titleWrapper = document.createElement('div')
 titleWrapper.id = "title-wrapper"
 body.append(titleWrapper)
 
-const previous = document.createElement('button')
-previous.innerText = "Previous"
-previous.className = "button"
-previous.id = "previous-button"
-titleWrapper.append(previous)
+const previous = appendTitleWrapperButton("Previous")
 
-const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-
-let nameOfCurrentMonth = monthNames[currentMonth - 1]
+let nameOfCurrentMonth = MONTH_NAMES[currentMonth]
 
 let monthTitle = document.createElement('h1')
 monthTitle.innerText = nameOfCurrentMonth
 titleWrapper.append(monthTitle)
 
-const next = document.createElement('button')
-next.innerText = "Next"
-next.className = "button"
-next.id = "next-button"
-titleWrapper.append(next)
+const next = appendTitleWrapperButton("Next")
 
-// creates a div containing table cells with the days in the current month
+// Div containing table cells with the days in the current month
 
 const calendarWrapper = document.createElement('div')
 calendarWrapper.id = "wrapper"
 body.append(calendarWrapper)
 
-// creates a variable representing the current date
-
-const currentDay = new Date();
-const dayOfMonth = currentDay.getUTCDate();
-
-// creates table cells and populates them with numbers representing days in the month
+// creates table cells and populates them with numbers representing each day in the month
 
 let counter = 1
 
@@ -67,3 +74,11 @@ for (let i = 0; i < daysInCurrentMonth; i++) {
   counter++
   wrapper.append(cell)
 }
+
+// creates click event for previous button
+
+function getPreviousMonth() {
+
+}
+
+previous.addEventListener('click', getPreviousMonth)
