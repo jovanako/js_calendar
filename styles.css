@@ -66,6 +66,7 @@ h1 {
   background-color: var(--cell-border-color);
   color: var(--cell-bg-color);
   font-size: 30px;
+  padding-bottom: 0;
 }
 
 #current-day {
