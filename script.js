@@ -13,6 +13,16 @@ const MONTH_NAMES = [
   'December'
 ]
 
+const DAY_NAMES = [
+  'Sun',
+  'Mon',
+  'Tue',
+  'Wed',
+  'Thu',
+  'Fri',
+  'Sat'
+]
+
 /**
  * @param {number} year 
  * @param {number} month
@@ -53,6 +63,19 @@ let title = document.createElement('h1')
 titleWrapper.append(title)
 
 const next = appendTitleWrapperButton(">")
+
+// Div containing days of week
+
+const weekDays = document.createElement('div')
+weekDays.id = "week-days"
+body.append(weekDays)
+
+for (let i = 0; i < DAY_NAMES.length; i++) {
+  let dayCell = document.createElement('div')
+  dayCell.className = "cell"
+  dayCell.innerText = DAY_NAMES[i]
+  weekDays.append(dayCell)
+}
 
 // Div containing table cells with the days in the current month
 

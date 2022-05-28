@@ -39,14 +39,27 @@ h1 {
   color: var(--cell-border-color);
 }
 
-#wrapper {
+#wrapper,
+#week-days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   align-content: stretch;
   width: 80%;
-  min-height: 500px;
   margin-left: auto;
   margin-right: auto;
+}
+
+#week-days div {
+  font-weight: bold;
+  background-color: white;
+  border: none;
+  border-radius: 0%;
+  margin: 0;
+  pointer-events: none;
+}
+
+#wrapper {
+  min-height: 500px;
 }
 
 .cell {
@@ -94,6 +107,10 @@ h1 {
 
   .button {
     font-weight: bold;
+  }
+
+  #week-days div {
+    font-size: 12px;
   }
 
 }
