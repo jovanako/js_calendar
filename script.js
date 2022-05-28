@@ -41,24 +41,18 @@ const dayOfMonth = date.getDate()
 // - buttons for the previous and next month
 const body = document.body
 
-const yearTitle = document.createElement('h1')
-yearTitle.innerText = currentYear
-yearTitle.id = "year-title"
-body.append(yearTitle)
-
 const titleWrapper = document.createElement('div')
 titleWrapper.id = "title-wrapper"
 body.append(titleWrapper)
 
-const previous = appendTitleWrapperButton("Previous")
+const previous = appendTitleWrapperButton("<")
 
 let nameOfCurrentMonth = MONTH_NAMES[currentMonth]
 
-let monthTitle = document.createElement('h1')
-monthTitle.innerText = nameOfCurrentMonth
-titleWrapper.append(monthTitle)
+let title = document.createElement('h1')
+titleWrapper.append(title)
 
-const next = appendTitleWrapperButton("Next")
+const next = appendTitleWrapperButton(">")
 
 // Div containing table cells with the days in the current month
 
@@ -83,7 +77,7 @@ function renderMonth(month, year) {
     let cell = document.createElement('div')
     cell.className = "cell"
     cell.id = `date${counter}`
-    cell.innerText = counter++
+    cell.innerText = counter
     wrapper.append(cell)
 
     if (counter === dayOfMonth
@@ -91,7 +85,9 @@ function renderMonth(month, year) {
       && year === date.getFullYear()) {
       cell.id = "current-day"
     }
+    counter++
   }
+  title.innerText = `${MONTH_NAMES[month]} ${year}`
 }
 
 let renderedMonth = currentMonth
@@ -105,10 +101,8 @@ function getPreviousMonth() {
   if (renderedMonth === -1) {
     renderedMonth = 11
     renderedYear--
-    yearTitle.innerText = renderedYear
   }
   renderMonth(renderedMonth, renderedYear)
-  monthTitle.innerText = MONTH_NAMES[renderedMonth]
 }
 
 previous.addEventListener('click', getPreviousMonth)
@@ -120,10 +114,8 @@ function getNextMonth() {
   if (renderedMonth === 12) {
     renderedMonth = 0
     renderedYear++
-    yearTitle.innerText = renderedYear
   }
   renderMonth(renderedMonth, renderedYear)
-  monthTitle.innerText = MONTH_NAMES[renderedMonth]
 }
 
 next.addEventListener('click', getNextMonth)

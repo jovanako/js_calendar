@@ -3,22 +3,9 @@
   --cell-bg-color: #EEE8AA;
 }
 
-
-#year-title {
-  width: 30%;
-  font-size: 50px;
-  border: 2px dotted var(--cell-border-color);
-  border-radius: 50px;
-  background-color: var(--cell-bg-color);
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: -50px;
-}
-
 #title-wrapper {
   display: flex;
-  width: 60%;
+  width: 70%;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
@@ -27,20 +14,19 @@
 h1 {
   flex: 1;
   font-family: 'Kaushan Script', cursive;
-  font-size: 80px;
+  font-size: 50px;
   color: var(--cell-border-color);
-  padding: 20px;
+  padding: 5px;
   text-align: center;
 }
 
 .button {
   width: 100px;
   height: 50px;
-  margin-top: 10%;
+  padding: 5px;
   font-family: 'Open Sans', sans-serif;
-  font-size: 18px;
+  font-size: 30px;
   text-align: center;
-  padding: 10px;
   border: none;
   border-radius: 5px;
   background-color: var(--cell-border-color);
@@ -80,7 +66,6 @@ h1 {
   background-color: var(--cell-border-color);
   color: var(--cell-bg-color);
   font-size: 30px;
-  padding: 10px;
 }
 
 #current-day {
@@ -90,29 +75,24 @@ h1 {
 
 @media (orientation: portrait) {
   #wrapper {
-    grid-template-columns: repeat(4, 1fr);
+    min-height: 300px;
   }
 
-  #title-wrapper {
-    width: 70%;
-    margin: 5% auto 0 auto;
+  .cell {
+    padding: 0;
   }
 
-  #year-title {
-    font-size: 30px;
+  .cell:hover {
+    font-size: 20px;
   }
 
   h1 {
-    font-size: 40px;
+    font-size: 30px;
     padding: 15px;
   }
 
   .button {
-    width: 70px;
-    height: 30px;
-    font-size: 15px;
     font-weight: bold;
-    padding: 5px;
   }
 
 }
