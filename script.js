@@ -36,6 +36,7 @@ const currentYear = date.getFullYear()
 const dayOfMonth = date.getDate()
 
 // Div containing
+// - title (name of current year)
 // - title (name of current month)
 // - buttons for the previous and next month
 const body = document.body
@@ -93,11 +94,11 @@ function renderMonth(month, year) {
   }
 }
 
-// creates click event for previous button
-
 let renderedMonth = currentMonth
 let renderedYear = currentYear
 renderMonth(renderedMonth, renderedYear)
+
+// creates click event for previous button
 
 function getPreviousMonth() {
   renderedMonth--
@@ -111,6 +112,8 @@ function getPreviousMonth() {
 }
 
 previous.addEventListener('click', getPreviousMonth)
+
+// creates click event for next button
 
 function getNextMonth() {
   renderedMonth++
