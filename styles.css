@@ -3,6 +3,7 @@
   --cell-bg-color: #EEE8AA;
 }
 
+
 #year-title {
   width: 30%;
   font-size: 50px;
@@ -70,7 +71,6 @@ h1 {
   font-family: 'Open Sans', sans-serif;
   font-size: 20px;
   text-align: center;
-  /* line-height: 30%; */
   padding: 20px;
   margin: 1px;
   transition-duration: 0.4s;
@@ -86,4 +86,33 @@ h1 {
 #current-day {
   background-color: var(--cell-border-color);
   color: var(--cell-bg-color);
+}
+
+@media (orientation: portrait) {
+  #wrapper {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  #title-wrapper {
+    width: 70%;
+    margin: 5% auto 0 auto;
+  }
+
+  #year-title {
+    font-size: 30px;
+  }
+
+  h1 {
+    font-size: 40px;
+    padding: 15px;
+  }
+
+  .button {
+    width: 70px;
+    height: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px;
+  }
+
 }
