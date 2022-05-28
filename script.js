@@ -103,7 +103,11 @@ function getPreviousMonth() {
   renderedMonth--
   renderMonth(renderedMonth, renderedYear)
   monthTitle.innerText = MONTH_NAMES[renderedMonth]
+  if (renderedMonth === 0) {
+    renderedMonth += 12
+  }
 }
+
 
 previous.addEventListener('click', getPreviousMonth)
 
@@ -112,6 +116,9 @@ function getNextMonth() {
   renderedMonth++
   renderMonth(renderedMonth, renderedYear)
   monthTitle.innerText = MONTH_NAMES[renderedMonth]
+  if (renderedMonth === 11) {
+    renderedMonth -= 12
+  }
 }
 
 next.addEventListener('click', getNextMonth)
