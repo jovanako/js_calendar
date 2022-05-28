@@ -95,13 +95,14 @@ function renderMonth(month, year) {
   removeAllChildNodes(calendarWrapper)
   let counter = 1
   const daysInMonth = getDaysInMonth(year, month)
+  const firstDayInMonth = new Date(`${year}, ${month}`)
+  // document.getElementById("wrapper").style.gridColumnStart = `${firstDayInMonth.getDay()}`
 
   for (let i = 0; i < daysInMonth; i++) {
     let cell = document.createElement('div')
     cell.className = "cell"
-    cell.id = `date${counter}`
     cell.innerText = counter
-    wrapper.append(cell)
+    calendarWrapper.append(cell)
 
     if (counter === dayOfMonth
       && month === date.getMonth()
