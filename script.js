@@ -65,9 +65,16 @@ const calendarWrapper = document.createElement('div')
 calendarWrapper.id = "wrapper"
 body.append(calendarWrapper)
 
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild)
+  }
+}
+
 // creates table cells and populates them with numbers representing each day in the month
 
 function renderMonth(month, year) {
+  removeAllChildNodes(calendarWrapper)
   let counter = 1
   const daysInMonth = getDaysInMonth(year, month)
 
@@ -92,33 +99,28 @@ let renderedMonth = currentMonth
 let renderedYear = currentYear
 renderMonth(renderedMonth, renderedYear)
 
-function removeAllChildNodes(parent) {
-  while (parent.firstChild) {
-    parent.removeChild(parent.firstChild)
-  }
-}
-
 function getPreviousMonth() {
-  removeAllChildNodes(calendarWrapper)
   renderedMonth--
+  if (renderedMonth === -1) {
+    renderedMonth = 11
+    renderedYear--
+    yearTitle.innerText = renderedYear
+  }
   renderMonth(renderedMonth, renderedYear)
   monthTitle.innerText = MONTH_NAMES[renderedMonth]
-  if (renderedMonth === 0) {
-    renderedMonth += 12
-  }
 }
-
 
 previous.addEventListener('click', getPreviousMonth)
 
 function getNextMonth() {
-  removeAllChildNodes(calendarWrapper)
   renderedMonth++
+  if (renderedMonth === 12) {
+    renderedMonth = 0
+    renderedYear++
+    yearTitle.innerText = renderedYear
+  }
   renderMonth(renderedMonth, renderedYear)
   monthTitle.innerText = MONTH_NAMES[renderedMonth]
-  if (renderedMonth === 11) {
-    renderedMonth -= 12
-  }
 }
 
 next.addEventListener('click', getNextMonth)
