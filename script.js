@@ -32,12 +32,18 @@ function appendTitleWrapperButton(innerText) {
 
 const date = new Date()
 const currentMonth = date.getMonth()
+const currentYear = date.getFullYear()
 const dayOfMonth = date.getDate()
 
 // Div containing
 // - title (name of current month)
 // - buttons for the previous and next month
 const body = document.body
+
+const yearTitle = document.createElement('h1')
+yearTitle.innerText = currentYear
+yearTitle.id = "year-title"
+body.append(yearTitle)
 
 const titleWrapper = document.createElement('div')
 titleWrapper.id = "title-wrapper"
@@ -71,23 +77,41 @@ function renderMonth(month, year) {
     cell.id = `date${counter}`
     cell.innerText = counter++
     wrapper.append(cell)
+
+    if (counter === dayOfMonth
+      && month === date.getMonth()
+      && year === date.getFullYear()) {
+      cell.id = "current-day"
+    }
   }
 }
-
-
-// if (counter === dayOfMonth) {
-//   cell.id = "current-day"
-// }
-
 
 // creates click event for previous button
 
 let renderedMonth = currentMonth
-let renderedYear = date.getFullYear()
+let renderedYear = currentYear
 renderMonth(renderedMonth, renderedYear)
 
-function getPreviousMonth() {
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild)
+  }
+}
 
+function getPreviousMonth() {
+  removeAllChildNodes(calendarWrapper)
+  renderedMonth--
+  renderMonth(renderedMonth, renderedYear)
+  monthTitle.innerText = MONTH_NAMES[renderedMonth]
 }
 
 previous.addEventListener('click', getPreviousMonth)
+
+function getNextMonth() {
+  removeAllChildNodes(calendarWrapper)
+  renderedMonth++
+  renderMonth(renderedMonth, renderedYear)
+  monthTitle.innerText = MONTH_NAMES[renderedMonth]
+}
+
+next.addEventListener('click', getNextMonth)

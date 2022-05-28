@@ -3,6 +3,18 @@
   --cell-bg-color: #EEE8AA;
 }
 
+#year-title {
+  width: 30%;
+  font-size: 50px;
+  border: 2px dotted var(--cell-border-color);
+  border-radius: 50px;
+  background-color: var(--cell-bg-color);
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: -50px;
+}
+
 #title-wrapper {
   display: flex;
   width: 60%;
