@@ -14,13 +14,13 @@ const MONTH_NAMES = [
 ]
 
 const DAY_NAMES = [
-  'Sun',
   'Mon',
   'Tue',
   'Wed',
   'Thu',
   'Fri',
-  'Sat'
+  'Sat',
+  'Sun'
 ]
 
 /**
@@ -96,7 +96,8 @@ function renderMonth(month, year) {
   let counter = 1
   const daysInMonth = getDaysInMonth(year, month)
   const checkDay = new Date(year, month)
-  let firstWeekDayInMonth = checkDay.getDay() + 1
+  let firstWeekDayInMonth = checkDay.getDay()
+  firstWeekDayInMonth = firstWeekDayInMonth === 0 ? 7 : firstWeekDayInMonth
 
   for (let i = 0; i < daysInMonth; i++) {
     let cell = document.createElement('div')
