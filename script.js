@@ -71,10 +71,10 @@ weekDays.id = "week-days"
 body.append(weekDays)
 
 for (let i = 0; i < DAY_NAMES.length; i++) {
-  let dayCell = document.createElement('div')
-  dayCell.className = "cell"
-  dayCell.innerText = DAY_NAMES[i]
-  weekDays.append(dayCell)
+  let weekDayCell = document.createElement('div')
+  weekDayCell.className = "cell"
+  weekDayCell.innerText = DAY_NAMES[i]
+  weekDays.append(weekDayCell)
 }
 
 // Div containing table cells with the days in the current month
@@ -95,14 +95,20 @@ function renderMonth(month, year) {
   removeAllChildNodes(calendarWrapper)
   let counter = 1
   const daysInMonth = getDaysInMonth(year, month)
-  const firstDayInMonth = new Date(`${year}, ${month}`)
-  // document.getElementById("wrapper").style.gridColumnStart = `${firstDayInMonth.getDay()}`
+  const checkDay = new Date(year, month)
+  let firstWeekDayInMonth = checkDay.getDay() + 1
 
   for (let i = 0; i < daysInMonth; i++) {
     let cell = document.createElement('div')
     cell.className = "cell"
-    cell.innerText = counter
     calendarWrapper.append(cell)
+    cell.innerText = counter
+
+    if (cell.innerText === "1") {
+      cell.id = "date1"
+    }
+
+    document.getElementById("date1").style.gridColumnStart = firstWeekDayInMonth
 
     if (counter === dayOfMonth
       && month === date.getMonth()
