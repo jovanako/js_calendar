@@ -123,6 +123,7 @@ function renderMonth(month, year) {
   for (let i = 0; i < daysInMonth; i++) {
     let cell = document.createElement('div')
     cell.className = "cell"
+    cell.title = "add event"
     calendarWrapper.append(cell)
     cell.innerText = counter
 
@@ -190,3 +191,12 @@ fetch(quotesAPI)
   .then(response => response.json())
   .then(json => createP(json.text))
   .catch(error => console.log(error))
+
+// create function that adds event on certain day
+function addEvent() {
+  const eventInputWindow = document.createElement('div')
+  eventInputWindow.id = "event-window"
+  body.append(eventInputWindow)
+}
+
+document.querySelector('.cell').addEventListener("click", addEvent())
