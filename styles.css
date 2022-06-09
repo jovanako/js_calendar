@@ -39,6 +39,16 @@ h1 {
   color: var(--cell-border-color);
 }
 
+#quote-wrapper {
+  height: 100px;
+  width: 80%;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  text-align: center;
+  margin: 5px auto 5px auto;
+  color: var(--cell-border-color);
+}
+
 #wrapper,
 #week-days {
   display: grid;

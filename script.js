@@ -52,6 +52,12 @@ const dayOfMonth = date.getDate()
 
 const body = document.body
 
+// function createElem(elemName, elemTag, elemId) {
+//   let elemName = document.createElement(elemTag)
+//   elemName.id = elemId
+//   body.append(elemName)
+// }
+
 // Div containing
 // - title (name of current year and month)
 // - buttons for the previous and next month
@@ -68,6 +74,11 @@ titleWrapper.append(title)
 
 // add "next" button
 const next = appendTitleWrapperButton(">")
+
+// add div containing quote
+const quoteWrapper = document.createElement('div')
+quoteWrapper.id = "quote-wrapper"
+body.append(quoteWrapper)
 
 // div containing days of week
 const weekDays = document.createElement('div')
@@ -165,3 +176,17 @@ function getNextMonth() {
 }
 
 next.addEventListener('click', getNextMonth)
+
+// add quotes API
+const quotesAPI = "https://uselessfacts.jsph.pl/random.json?language=en"
+
+function createP(elem) {
+  let p = document.createElement('p')
+  p.innerText = elem
+  quoteWrapper.append(p)
+}
+
+fetch(quotesAPI)
+  .then(response => response.json())
+  .then(json => createP(json.text))
+  .catch(error => console.log(error))
