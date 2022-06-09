@@ -70,6 +70,7 @@ h1 {
 
 #wrapper {
   min-height: 500px;
+  position: relative;
 }
 
 .cell {
@@ -96,6 +97,28 @@ h1 {
 #current-day {
   background-color: var(--cell-border-color);
   color: var(--cell-bg-color);
+}
+
+#note-window {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  z-index: 1005;
+  width: 200px;
+  height: 200px;
+  color: var(--cell-border-color);
+  font-family: 'Open Sans', sans-serif;
+  border: 1px solid var(--cell-border-color);
+  border-radius: 5px;
+  background-color: white;
+}
+
+#note-window input {
+  height: 50px;
 }
 
 @media (orientation: portrait) {

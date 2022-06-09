@@ -124,6 +124,7 @@ function renderMonth(month, year) {
     let cell = document.createElement('div')
     cell.className = "cell"
     cell.title = "Add event"
+    cell.addEventListener("click", addNote)
     calendarWrapper.append(cell)
     cell.innerText = counter
 
@@ -193,10 +194,15 @@ fetch(quotesAPI)
   .catch(error => console.log(error))
 
 // create function that adds event on certain day
-function addEvent() {
-  const eventInputWindow = document.createElement('div')
-  eventInputWindow.id = "event-window"
-  body.append(eventInputWindow)
+const noteInputWindow = document.createElement('div')
+noteInputWindow.id = "note-window"
+wrapper.append(noteInputWindow)
+
+const noteInput = document.createElement('input')
+noteInput.type = "text"
+noteInputWindow.append(noteInput)
+
+function addNote() {
+  noteInputWindow.style.display = "flex"
 }
 
-document.querySelector('.cell').addEventListener("click", addEvent())
