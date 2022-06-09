@@ -123,7 +123,7 @@ function renderMonth(month, year) {
   for (let i = 0; i < daysInMonth; i++) {
     let cell = document.createElement('div')
     cell.className = "cell"
-    cell.title = "add event"
+    cell.title = "Add event"
     calendarWrapper.append(cell)
     cell.innerText = counter
 
