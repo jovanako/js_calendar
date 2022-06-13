@@ -58,6 +58,11 @@ const body = document.body
 //   body.append(elemName)
 // }
 
+// add div containing quote
+const quoteWrapper = document.createElement('div')
+quoteWrapper.id = "quote-wrapper"
+body.append(quoteWrapper)
+
 // Div containing
 // - title (name of current year and month)
 // - buttons for the previous and next month
@@ -74,11 +79,6 @@ titleWrapper.append(title)
 
 // add "next" button
 const next = appendTitleWrapperButton(">")
-
-// add div containing quote
-const quoteWrapper = document.createElement('div')
-quoteWrapper.id = "quote-wrapper"
-body.append(quoteWrapper)
 
 // div containing days of week
 const weekDays = document.createElement('div')

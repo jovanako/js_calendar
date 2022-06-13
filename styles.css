@@ -8,7 +8,7 @@
 
 #title-wrapper {
   display: flex;
-  width: 70%;
+  width: 80%;
   align-items: center;
   margin-left: auto;
   margin-right: auto;
@@ -46,16 +46,15 @@ h1 {
 
 #quote-wrapper {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: right;
+  align-items: right;
   width: 80%;
   font-family: var(--cursive-font);
   font-size: 18px;
-  text-align: center;
+  text-align: right;
   margin: 10px auto 10px auto;
   color: var(--text-color);
   border-radius: 5px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
 #dates-wrapper,
