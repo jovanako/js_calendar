@@ -38,6 +38,7 @@ h1 {
 .button:hover {
   color: white;
   background-color: var(--text-color);
+  cursor: pointer;
 }
 
 #quote-wrapper {
