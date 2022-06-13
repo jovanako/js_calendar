@@ -180,7 +180,7 @@ function getNextMonth() {
 next.addEventListener('click', getNextMonth)
 
 // add quotes API
-const quotesAPI = "https://uselessfacts.jsph.pl/random.json?language=en"
+const quotesAPI = "https://asli-fun-fact-api.herokuapp.com/"
 
 function createP(elem) {
   let p = document.createElement('p')
@@ -191,7 +191,7 @@ function createP(elem) {
 fetch(quotesAPI)
   .then(response => response.json())
   .then(json => createP(`Did you know?
-  ${json.text}`))
+  ${json.data.fact.toUpperCase()}`))
   .catch(error => console.log(error))
 
 // create function that adds event on certain day
