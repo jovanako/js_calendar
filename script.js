@@ -94,9 +94,9 @@ for (let i = 0; i < DAY_NAMES.length; i++) {
 }
 
 // div containing table cells with days of current month
-const calendarWrapper = document.createElement('div')
-calendarWrapper.id = "wrapper"
-body.append(calendarWrapper)
+const datesWrapper = document.createElement('div')
+datesWrapper.id = "dates-wrapper"
+body.append(datesWrapper)
 
 // function that clears the html before rendering new page
 function removeAllChildNodes(parent) {
@@ -107,7 +107,7 @@ function removeAllChildNodes(parent) {
 
 // create table cells and populates them with numbers representing each day in the month
 function renderMonth(month, year) {
-  removeAllChildNodes(calendarWrapper)
+  removeAllChildNodes(datesWrapper)
   let counter = 1
   const daysInMonth = getDaysInMonth(year, month)
 
@@ -125,7 +125,7 @@ function renderMonth(month, year) {
     cell.className = "cell"
     cell.title = "Add event"
     cell.addEventListener("click", addNote)
-    calendarWrapper.append(cell)
+    datesWrapper.append(cell)
     cell.innerText = counter
 
     // add an id to the cell representing the first day in month
