@@ -197,7 +197,7 @@ fetch(quotesAPI)
 // create function that adds event on certain day
 const noteInputWindow = document.createElement('div')
 noteInputWindow.id = "note-window"
-wrapper.append(noteInputWindow)
+datesWrapper.append(noteInputWindow)
 
 const closeButton = document.createElement('span')
 closeButton.className = "close"
