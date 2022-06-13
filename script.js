@@ -190,13 +190,18 @@ function createP(elem) {
 
 fetch(quotesAPI)
   .then(response => response.json())
-  .then(json => createP(json.text))
+  .then(json => createP(`Did you know?
+  ${json.text}`))
   .catch(error => console.log(error))
 
 // create function that adds event on certain day
 const noteInputWindow = document.createElement('div')
 noteInputWindow.id = "note-window"
 wrapper.append(noteInputWindow)
+
+const closeButton = document.createElement('span')
+closeButton.className = "close"
+noteInputWindow.append(closeButton)
 
 const noteInput = document.createElement('input')
 noteInput.type = "text"
