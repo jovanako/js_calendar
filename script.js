@@ -52,51 +52,60 @@ const dayOfMonth = date.getDate()
 
 const body = document.body
 
-// function createElem(elemName, elemTag, elemId) {
-//   let elemName = document.createElement(elemTag)
-//   elemName.id = elemId
-//   body.append(elemName)
-// }
+/**
+ * 
+ * @param {string} elemType - tag of the newly-created element
+ * @param {object} parent - element to append the newly-created element to
+ * @param {object} opts - optional object with keys: elemId, className, innerText
+ * @returns newly-created element
+ */
+function appendNewElem(elemType, parent, opts) {
+  const { elemId, className, innerText, title } = opts || {}
+  let elem = document.createElement(elemType)
+  elem.id = elemId || ''
+  elem.className = className || ''
+  elem.innerText = innerText || ''
+  elem.title = title || ''
+  parent.append(elem)
+  return elem
+}
 
 // add div containing quote
-const quoteWrapper = document.createElement('div')
-quoteWrapper.id = "quote-wrapper"
-body.append(quoteWrapper)
+const quoteWrapper = appendNewElem('div', body, { elemId: "quote-wrapper" })
 
 // Div containing
 // - title (name of current year and month)
 // - buttons for the previous and next month
-const titleWrapper = document.createElement('div')
-titleWrapper.id = "title-wrapper"
-body.append(titleWrapper)
+const titleWrapper = appendNewElem('div', body, { elemId: "title-wrapper" })
 
 // add "previous" button
-const previous = appendTitleWrapperButton("<")
+const previous = appendNewElem('button', titleWrapper, {
+  className: "button",
+  innerText: "<"
+})
 
 // create h1 element for the title
-let title = document.createElement('h1')
-titleWrapper.append(title)
+let title = appendNewElem('h1', titleWrapper)
 
 // add "next" button
-const next = appendTitleWrapperButton(">")
+const next = appendNewElem('button', titleWrapper, {
+  className: "button",
+  innerText: ">"
+})
 
 // div containing days of week
-const weekDays = document.createElement('div')
-weekDays.id = "week-days"
-body.append(weekDays)
+const weekDays = appendNewElem('div', body, { elemId: "week-days" })
 
 // populate week days
 for (let i = 0; i < DAY_NAMES.length; i++) {
-  let weekDayCell = document.createElement('div')
-  weekDayCell.className = "cell"
-  weekDayCell.innerText = DAY_NAMES[i]
-  weekDays.append(weekDayCell)
+  appendNewElem('div', weekDays, {
+    className: "cell",
+    innerText: DAY_NAMES[i]
+  })
 }
 
 // div containing table cells with days of current month
-const datesWrapper = document.createElement('div')
-datesWrapper.id = "dates-wrapper"
-body.append(datesWrapper)
+const datesWrapper = appendNewElem('div', body, { elemId: "dates-wrapper" })
 
 // function that clears the html before rendering new page
 function removeAllChildNodes(parent) {
@@ -121,22 +130,21 @@ function renderMonth(month, year) {
 
   // populate the month days cells
   for (let i = 0; i < daysInMonth; i++) {
-    let cell = document.createElement('div')
-    cell.className = "cell"
-    cell.title = "Add event"
-    cell.addEventListener("click", addNote)
-    datesWrapper.append(cell)
-    cell.innerText = counter
+    let cell = appendNewElem('div', datesWrapper, {
+      className: "cell",
+      title: "Add event",
+      innerText: counter
+    })
 
-    // add an id to the cell representing the first day in month
-    if (cell.innerText === "1") {
-      cell.id = "date1"
-    }
+    cell.addEventListener("click", addNote)
 
     // change style of the grid so that the cell representing 
     // the first day in current month is located at the appropriate
-    // cell representing the first week day of current month
-    document.getElementById("date1").style.gridColumnStart = firstWeekDayInMonth
+    // location corresponding to the first week day of current month
+    if (counter === 1) {
+      cell.style.gridColumnStart = firstWeekDayInMonth
+    }
+
 
     // add an id to the cell representing current day
     // in order to highlight it in css
