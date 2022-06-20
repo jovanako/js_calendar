@@ -1,4 +1,4 @@
-import { renderMonth, weekDays, datesWrapper } from "./calendar.mjs"
+import { renderMonth, datesWrapper } from "./calendar.mjs"
 
 const MONTH_NAMES = [
   'January',
@@ -61,4 +61,4 @@ titleWrapper.append(next)
 
 renderMonth(renderedMonth, renderedYear)
 
-export { titleWrapper, weekDays, datesWrapper }
+export { titleWrapper, datesWrapper }
