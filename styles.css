@@ -112,7 +112,6 @@ h1 {
   justify-content: center;
   position: absolute;
   top: 20%;
-  left: 20%;
   z-index: 1005;
   width: 200px;
   height: 200px;
@@ -127,6 +126,14 @@ h1 {
 #note-window input {
   height: 50px;
   border: var(--cell-border-color);
+}
+
+.close {
+  color: var(--text-color);
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 10px;
 }
 
 @media (orientation: portrait) {

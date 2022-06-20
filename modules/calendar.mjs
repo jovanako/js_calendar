@@ -1,3 +1,5 @@
+import { addNote } from './addNote.mjs'
+
 /**
  * @param {number} year 
  * @param {number} month
@@ -66,24 +68,6 @@ function renderMonth(month, year) {
     }
     counter++
   }
-}
-
-
-// create function that adds event on certain day
-const noteInputWindow = document.createElement('div')
-noteInputWindow.id = "note-window"
-datesWrapper.append(noteInputWindow)
-
-const closeButton = document.createElement('span')
-closeButton.className = "close"
-noteInputWindow.append(closeButton)
-
-const noteInput = document.createElement('input')
-noteInput.type = "text"
-noteInputWindow.append(noteInput)
-
-function addNote() {
-  noteInputWindow.style.display = "flex"
 }
 
 export { renderMonth, datesWrapper }
