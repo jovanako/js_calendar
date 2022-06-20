@@ -45,9 +45,6 @@ h1 {
 }
 
 #quote-wrapper {
-  display: flex;
-  justify-content: right;
-  align-items: right;
   width: 80%;
   font-family: var(--cursive-font);
   font-size: 18px;
