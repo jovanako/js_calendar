@@ -1,4 +1,4 @@
-import { renderMonth, datesWrapper } from "./calendar.mjs"
+import { renderMonth } from "./calendar.mjs"
 
 const MONTH_NAMES = [
   'January',
@@ -49,7 +49,6 @@ previous.addEventListener('click', getPreviousMonth)
 titleWrapper.append(previous)
 
 const title = document.createElement('h1')
-// populate title with current month and year
 title.innerText = `${MONTH_NAMES[renderedMonth]} ${renderedYear}`
 titleWrapper.append(title)
 
@@ -61,4 +60,4 @@ titleWrapper.append(next)
 
 renderMonth(renderedMonth, renderedYear)
 
-export { titleWrapper, datesWrapper }
+export { titleWrapper }
