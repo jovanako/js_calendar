@@ -45,7 +45,7 @@ function renderMonth(month, year) {
   for (let i = 0; i < daysInMonth; i++) {
     let cell = document.createElement('div')
     cell.className = 'cell'
-    cell.title = 'Add event'
+    cell.title = 'Add note'
     cell.innerText = counter
     cell.addEventListener("click", addNote)
     datesWrapper.append(cell)

@@ -1,4 +1,4 @@
-const QUOTES_API = "https://asli-fun-fact-api.herokuapp.com/"
+const QUOTES_API = "https://uselessfacts.jsph.pl/random.json?language=en"
 
 const quoteWrapper = document.createElement('div')
 quoteWrapper.id = 'quote-wrapper'
@@ -19,7 +19,7 @@ const handleError = error => {
 
 fetch(QUOTES_API)
   .then(response => response.json())
-  .then(json => quote.innerText = json.data.fact.toUpperCase())
+  .then(json => quote.innerText = json.text.toUpperCase())
   .catch(handleError)
 
 export { quoteWrapper }
