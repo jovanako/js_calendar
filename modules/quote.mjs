@@ -18,11 +18,16 @@ const handleError = error => {
 }
 
 async function getResponse() {
-  const response = await fetch(QUOTES_API)
-  if (!response.ok) {
-    handleError
+  try {
+    const response = await fetch(QUOTES_API)
+    return await response.json()
+  } catch {
+    handleError()
   }
-  quote.innerText = await response.json.text.toUpperCase()
 }
+
+getResponse().then(json => {
+  quote.innerText = json.text
+})
 
 export { quoteWrapper }
