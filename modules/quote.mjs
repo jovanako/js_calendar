@@ -17,7 +17,7 @@ const handleError = error => {
   console.log(error)
 }
 
-async function getResponse() {
+async function getQuote() {
   try {
     const response = await fetch(QUOTES_API)
     return await response.json()
@@ -26,8 +26,13 @@ async function getResponse() {
   }
 }
 
-getResponse().then(json => {
+getQuote().then(json => {
   quote.innerText = json.text
 })
+
+// fetch(QUOTES_API)
+//   .then(response => response.json())
+//   .then(json => quote.innerText = json.text)
+//   .catch(handleError)
 
 export { quoteWrapper }
